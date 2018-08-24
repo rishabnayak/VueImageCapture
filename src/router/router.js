@@ -9,8 +9,6 @@ const editprofile = () =>
   import ('@/components/users/edit-profile')
 const profile = () =>
   import ('@/components/users/profile')
-const allusers = () =>
-  import ('@/components/users/all-users')
 import home from '@/components/static/home'
 
 Vue.use(Router)
@@ -38,12 +36,7 @@ const router = new Router({
       }
     },
     {
-      path: '/users',
-      name: 'allusers',
-      component: allusers
-    },
-    {
-      path: '/profile/:uname',
+      path: '/profile',
       name: 'profile',
       component: profile
     }]

@@ -15,18 +15,10 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <router-link :to="{ name: 'allusers'}">Users</router-link>
-          </a>
-        </li>
-        <li v-if="user" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Area</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown">
+        <li v-if="user">
             <a class="nav-link">
-              <router-link :to="{ path: profilelink()}">My Profile</router-link>
+              <router-link :to="{ path: '/profile'}">My Profile</router-link>
             </a>
-          </div>
         </li>
       </ul>
       <a v-if="user" class="nav-link btn btn-outline" @click="signOut()">Logout</a>
@@ -50,9 +42,6 @@ export default {
     async signOut() {
       await this.$store.dispatch('logOut')
       this.$router.push('/')
-    },
-    profilelink: function() {
-      return "/profile/" + this.user.uname
     },
     async login() {
       this.$router.push('/login')
