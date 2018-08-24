@@ -9,6 +9,8 @@ const editprofile = () =>
   import ('@/components/users/edit-profile')
 const profile = () =>
   import ('@/components/users/profile')
+const app = () =>
+    import ('@/components/app/app')
 import home from '@/components/static/home'
 
 Vue.use(Router)
@@ -31,6 +33,14 @@ const router = new Router({
       path: '/editprofile',
       name: 'editprofile',
       component: editprofile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/app',
+      name: 'app',
+      component: app,
       meta: {
         requiresAuth: true
       }

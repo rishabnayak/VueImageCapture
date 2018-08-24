@@ -15,10 +15,15 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
+        <li>
+          <a class="nav-link">
+            <router-link :to="{ path: '/app'}">App</router-link>
+          </a>
+        </li>
         <li v-if="user">
-            <a class="nav-link">
-              <router-link :to="{ path: '/profile'}">My Profile</router-link>
-            </a>
+          <a class="nav-link">
+            <router-link :to="{ path: '/profile'}">My Profile</router-link>
+          </a>
         </li>
       </ul>
       <a v-if="user" class="nav-link btn btn-outline" @click="signOut()">Logout</a>
