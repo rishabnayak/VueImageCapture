@@ -32,9 +32,7 @@ const actions = {
       // first time user
       await mydb.set({
         displayName: user.displayName,
-        uid: user.uid,
-        disabilities: [],
-        skills: []
+        uid: user.uid
       })
       raid = await mydb.get()
       context.commit('setUser', raid.data())

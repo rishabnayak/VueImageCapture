@@ -6,6 +6,9 @@ import router from './router/router.js'
 import store from './store/store.js'
 import firebase from 'firebase'
 import './registerServiceWorker'
+import VueMasonry from 'vue-masonry-css'
+
+Vue.use(VueMasonry)
 
 Vue.config.productionTip = false
 
