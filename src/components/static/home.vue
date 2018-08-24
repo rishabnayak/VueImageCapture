@@ -57,19 +57,6 @@ export default {
     user () {
       return this.$store.state.user
     }
-  },
-async mounted (){
-  if (this.user) {
-    if (this.user.calibration == undefined) {
-      this.$router.push({ name: "calibration"})
-    }
-    else {
-      return
-    }
-  }
-  else {
-    return
-    }
   }
 }
 </script>

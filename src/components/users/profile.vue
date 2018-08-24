@@ -4,6 +4,7 @@
     <div class="jumbotron text-center">
       <h1 align="center">{{displayname}}</h1>
       <br>
+      <p v-if="calibration!=undefined">Calibration Successful</p>
       <br>
       <router-link :to="{ name: 'calibration'}"><button class="btn btn-primary">Recalibrate</button></router-link>
     </div>
@@ -29,11 +30,13 @@ export default {
   },
   data() {
     return {
-      displayname: null
+      displayname: null,
+      calibration: null
     }
   },
   async created() {
       this.displayname = this.user.displayName
+      this.calibration = this.user.calibration
   }
 }
 </script>

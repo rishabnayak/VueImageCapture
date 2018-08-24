@@ -96,9 +96,13 @@ export default {
         sum3 = sum3 + Data3.data[i];
       }
       var avg3 = sum3 / (this.canvas3.width * this.canvas3.height)
+      var m1 = (avg3-avg1)/(300-30)
+      var m2 = (avg3-avg2)/(300-150)
+      var m3 = (avg2-avg1)/(150-30)
+      var m = (m1+m2+m3)/3
       let ref = db.collection('users').doc(this.user.uid)
       await ref.update({
-        calibration:[avg1,avg2,avg3]
+        calibration: m
       })
       this.$router.push({ name: "app"})
     }

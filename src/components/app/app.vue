@@ -33,21 +33,18 @@ export default {
       video: null,
       canvas: null,
       out: null,
-      dp1: null,
-      dp2: null,
-      dp3: null
+      calibrated: null
     }
   },
   async mounted() {
-    let data = db.collection('users').doc(this.user.uid).get()
-    if (data.calibration == undefined) {
+    let ref = db.collection('users').doc(this.user.uid)
+    var data = await ref.get()
+    if (data.data().calibration == undefined) {
       this.$router.push({
         name: "calibration"
       })
     } else {
-      this.dp1 = data.calibration[0]
-      this.dp2 = data.calibration[1]
-      this.dp3 = data.calibration[2]
+      this.calibrated = data.data().calibration
       this.video = this.$refs.video;
       this.canvas = this.$refs.canvas;
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -95,7 +92,7 @@ export default {
                 sum = sum + origData.data[i];
               }
               avg = sum / (CANVAS_WIDTH * CANVAS_HEIGHT);
-              conc = (avg - 0.5557) / 0.3883;
+              conc = avg / _this.calibrated;
               var outconc = conc.toFixed(2);
               _this.out = "The concentration is " + outconc + "mg/L";
             }
