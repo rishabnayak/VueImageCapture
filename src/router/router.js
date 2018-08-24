@@ -5,12 +5,12 @@ import db from '@/firebase/init.js'
 import store from '@/store/store.js'
 const login = () =>
   import ('@/components/login')
-const editprofile = () =>
-  import ('@/components/users/edit-profile')
 const profile = () =>
   import ('@/components/users/profile')
 const app = () =>
     import ('@/components/app/app')
+const calibration = () =>
+      import ('@/components/app/calibration')
 import home from '@/components/static/home'
 
 Vue.use(Router)
@@ -30,17 +30,17 @@ const router = new Router({
       component: login
     },
     {
-      path: '/editprofile',
-      name: 'editprofile',
-      component: editprofile,
+      path: '/app',
+      name: 'app',
+      component: app,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/app',
-      name: 'app',
-      component: app,
+      path: '/calibration',
+      name: 'calibration',
+      component: calibration,
       meta: {
         requiresAuth: true
       }

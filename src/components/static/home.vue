@@ -60,8 +60,8 @@ export default {
   },
 async mounted (){
   if (this.user) {
-    if (this.user.uname == undefined) {
-      this.$router.push({ name: "editprofile"})
+    if (this.user.calibration == undefined) {
+      this.$router.push({ name: "calibration"})
     }
     else {
       return

@@ -1,19 +1,11 @@
 <template>
-<main>
+<main class="content">
   <div class="container">
-    <div class="jumbotron">
-      <div v-if="this.picCheck==undefined" style="text-align:center">
-        <i class="material-icons md-48">account_circle</i>
-      </div>
-      <div v-else style="text-align:center">
-        <img class="round img" :src="imgURL"></img>
-      </div>
+    <div class="jumbotron text-center">
       <h1 align="center">{{displayname}}</h1>
-      <h4 class="section-head">Bio</h4>
-      <p class="content">{{bio}}</p>
-      <router-link to="/editprofile">
-        <button class="btn btn-primary btn-lg btn-block col-md-3">Update</button>
-      </router-link>
+      <br>
+      <br>
+      <router-link :to="{ name: 'calibration'}"><button class="btn btn-primary">Recalibrate</button></router-link>
     </div>
   </div>
   <hr class="featurette-divider">
@@ -37,22 +29,11 @@ export default {
   },
   data() {
     return {
-      displayname: null,
-      bio: null,
-      imgURL: null,
-      picCheck: null
+      displayname: null
     }
   },
   async created() {
-    this.picCheck = this.user.profilePic
-    if (this.picCheck == undefined) {
-      this.bio = this.user.bio
       this.displayname = this.user.displayName
-    } else {
-      this.bio = this.user.bio
-      this.displayname = this.user.displayName
-      this.imgURL = this.user.profilePic[0]
-    }
   }
 }
 </script>
@@ -99,6 +80,6 @@ h1 {
 }
 
 .content {
-  padding-left: 12px
+  padding-top: 10px
 }
 </style>
