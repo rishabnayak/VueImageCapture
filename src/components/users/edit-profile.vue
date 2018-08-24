@@ -48,7 +48,7 @@
 
   <footer class="container">
     <p class="float-right"><a href="#">Back to top</a></p>
-    <p>© 2018 Prantae</p>
+    <p>© 2018 Vue ImageCapture</p>
   </footer>
 </main>
 </template>
