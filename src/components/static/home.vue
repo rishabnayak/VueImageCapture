@@ -2,7 +2,7 @@
   <main role="main">
     <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Prantae</h1>
+          <h1 class="jumbotron-heading">Vue ImageCapture</h1>
           <p class="lead text-muted">Testing Web App</p>
         </div>
       </section>
