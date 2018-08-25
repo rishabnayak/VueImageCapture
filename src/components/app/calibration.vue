@@ -39,20 +39,23 @@ export default {
   },
   async mounted() {
     this.video = this.$refs.video;
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    if (navigator.mediaDevices) {
       navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: "environment",
-          width: {
-            exact: 640
-          },
-          height: {
-            exact: 480
+          video: {
+            facingMode: "environment",
+            width: {
+              exact: 640
+            },
+            height: {
+              exact: 480
+            }
           }
-        }
-      }).then(stream => {
-        this.video.srcObject = stream;
-      })
+        }).then(stream => {
+          this.video.srcObject = stream;
+        })
+        .catch(function(error) {
+          document.body.textContent = 'Could not access the camera. Error: ' + error.name;
+        });
     }
   },
   methods: {
@@ -96,15 +99,17 @@ export default {
         sum3 = sum3 + Data3.data[i];
       }
       var avg3 = sum3 / (this.canvas3.width * this.canvas3.height)
-      var m1 = (avg3-avg1)/(300-30)
-      var m2 = (avg3-avg2)/(300-150)
-      var m3 = (avg2-avg1)/(150-30)
-      var m = (m1+m2+m3)/3
+      var m1 = (avg3 - avg1) / (300 - 30)
+      var m2 = (avg3 - avg2) / (300 - 150)
+      var m3 = (avg2 - avg1) / (150 - 30)
+      var m = (m1 + m2 + m3) / 3
       let ref = db.collection('users').doc(this.user.uid)
       await ref.update({
         calibration: m
       })
-      this.$router.push({ name: "app"})
+      this.$router.push({
+        name: "app"
+      })
     }
   }
 }
