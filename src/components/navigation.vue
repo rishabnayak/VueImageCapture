@@ -1,6 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-md navbar-light bg-light navbar-fixed">
-  <div class="container">
+<nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top">
     <a class="navbar-brand">
       <router-link to="/">Vue ImageCapture</router-link>
     </a>
@@ -29,7 +28,6 @@
       <a v-if="user" class="nav-link btn btn-outline" @click="signOut()">Logout</a>
       <a v-else class="nav-link btn btn-outline" @click="login()">Login</a>
     </div>
-  </div>
 </nav>
 </template>
 
