@@ -2,7 +2,7 @@
 <main class="content">
   <div class="container">
     <div class="jumbotron text-center">
-      <video class="embed-responsive" ref="video" autoplay plays-inline></video>
+      <video class="embed-responsive" ref="video" autoplay playsinline></video>
       <canvas ref="canvas" width="56" height="152" hidden></canvas>
       <br>
       <p>{{out}}</p>
